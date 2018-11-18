@@ -1,53 +1,33 @@
 package prodincena;
 
 public class Verba {
-    boolean empPublica;
-    boolean empPrivada;
-    boolean lic;            // Leis de incentivo a cultura
-    boolean vendaProducao;
+    String tipo;
+    double valor;
 
     // Builder's
     public Verba(){
     
     }
     
-    public Verba(boolean empPublica, boolean empPrivada, boolean lic, boolean vendaProducao) {
-        this.empPublica = empPublica;
-        this.empPrivada = empPrivada;
-        this.lic = lic;
-        this.vendaProducao = vendaProducao;
+    public Verba(String tipo, double valor) {
+        this.tipo = tipo;
+        this.valor = valor;
     }
     
     // Get's and Set's
-    public boolean isEmpPublica() {
-        return empPublica;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setEmpPublica(boolean empPublica) {
-        this.empPublica = empPublica;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public boolean isEmpPrivada() {
-        return empPrivada;
+    public double getValor() {
+        return valor;
     }
 
-    public void setEmpPrivada(boolean empPrivada) {
-        this.empPrivada = empPrivada;
-    }
-
-    public boolean isLic() {
-        return lic;
-    }
-
-    public void setLic(boolean lic) {
-        this.lic = lic;
-    }
-
-    public boolean isVendaProducao() {
-        return vendaProducao;
-    }
-
-    public void setVendaProducao(boolean vendaProducao) {
-        this.vendaProducao = vendaProducao;
-    }
+    public void setValor(double valor) {
+        this.valor = valor;
+    }   
 }
