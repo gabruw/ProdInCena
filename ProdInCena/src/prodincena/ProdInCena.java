@@ -13,7 +13,7 @@ public class ProdInCena {
         Verba newVerba = new Verba();
         
         System.out.println("Digite o Tipo de Patroinador: ");
-        String tipo = input.next();
+        Patrocionio tipo = (Patrocionio.valueOf(input.next()));
         
         while(tipo.equals("LIC")){
             if(tipoPrograma.equals("FILMES") || tipoPrograma.equals("SHOWS_BANDAS")){
@@ -22,7 +22,7 @@ public class ProdInCena {
                 System.out.println("O Tipo 'LIC' só pode ser utilizado para Filmes ou Shows de Bandas!");
                 
                 System.out.println("Digite o Tipo de Patroinador: ");
-                tipo = input.next();
+                tipo = (Patrocionio.valueOf(input.next()));
             }
         }
         

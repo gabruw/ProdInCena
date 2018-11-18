@@ -1,7 +1,7 @@
 package prodincena;
 
 public class Verba {
-    String tipo;
+    Patrocionio tipo;
     double valor;
 
     // Builder's
@@ -9,17 +9,17 @@ public class Verba {
     
     }
     
-    public Verba(String tipo, double valor) {
+    public Verba(Patrocionio tipo, double valor) {
         this.tipo = tipo;
         this.valor = valor;
     }
     
     // Get's and Set's
-    public String getTipo() {
+    public Patrocionio getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Patrocionio tipo) {
         this.tipo = tipo;
     }
 
