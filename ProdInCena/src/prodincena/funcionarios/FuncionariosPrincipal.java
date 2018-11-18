@@ -1,4 +1,4 @@
-package prodincena;
+package prodincena.funcionarios;
 
 public enum FuncionariosPrincipal {
     ATORES, 
