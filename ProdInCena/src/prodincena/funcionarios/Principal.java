@@ -1,43 +1,50 @@
 package prodincena.funcionarios;
 
-public class Principal {
-    String nome;
-    String funcao;
-    double salario;
+public class Principal extends Funcionario {
+    public String nomePrincipal;
+    FuncionariosPrincipal funcaoPrincipal;
+    public double salarioPrincipal;
 
     // Builder's
     public Principal(){
     
     }
+
+    public Principal(String nomePrincipal, FuncionariosPrincipal funcaoPrincipal, double salarioPrincipal) {
+        this.nomePrincipal = nomePrincipal;
+        this.funcaoPrincipal = funcaoPrincipal;
+        this.salarioPrincipal = salarioPrincipal;
+    }
     
-    public Principal(String nome, String funcao, double salario) {
-        this.nome = nome;
-        this.funcao = funcao;
-        this.salario = salario;
+    public double CalcSalario(int numCenas, int numProducao, double salario)
+    {
+        salario = (numCenas * salario) + (numProducao * salario);
+        
+        return salario;
     }
     
     // Get's and Set's
-    public String getNome() {
-        return nome;
+    public String getNomePrincipal() {
+        return nomePrincipal;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomePrincipal(String nomePrincipal) {
+        this.nomePrincipal = nomePrincipal;
     }
 
-    public String getFuncao() {
-        return funcao;
+    public FuncionariosPrincipal getFuncaoPrincipal() {
+        return funcaoPrincipal;
     }
 
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
+    public void setFuncaoPrincipal(FuncionariosPrincipal funcaoPrincipal) {
+        this.funcaoPrincipal = funcaoPrincipal;
     }
 
-    public double getSalario() {
-        return salario;
+    public double getSalarioPrincipal() {
+        return salarioPrincipal;
     }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
+    public void setSalarioPrincipal(double salarioPrincipal) {
+        this.salarioPrincipal = salarioPrincipal;
     }
 }

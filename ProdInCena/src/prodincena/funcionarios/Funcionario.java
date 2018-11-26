@@ -1,5 +1,10 @@
 package prodincena.funcionarios;
 
-public interface Funcionario {
-    // Adicionar os métodos compartilhados entre as classes de Apoio e Principal
+public abstract class Funcionario {
+    public String nome;
+    public double salario;
+    
+    public double CalcSalario(){
+        return salario;
+    }
 }

@@ -1,6 +1,6 @@
 package prodincena.funcionarios;
 
 public enum FuncionariosPrincipal {
-    ATORES, 
-    DUBLES;
+    ATOR, 
+    DUBLE;
 }

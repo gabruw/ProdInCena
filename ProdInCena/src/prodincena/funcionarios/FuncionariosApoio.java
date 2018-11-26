@@ -1,9 +1,9 @@
 package prodincena.funcionarios;
 
 public enum FuncionariosApoio {
-    CAMERAS, 
-    ILUMINADORES, 
-    CONTRARREGRAS, 
-    PRODUTORES, 
+    CAMERA, 
+    ILUMINADOR, 
+    CONTRARREGRA, 
+    PRODUTOR, 
     MAQUIAGEM;
 }
