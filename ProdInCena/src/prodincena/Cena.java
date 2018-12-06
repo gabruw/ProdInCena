@@ -1,48 +1,39 @@
 package prodincena;
 
+import java.util.ArrayList;
 import java.util.List;
 import prodincena.funcionarios.Funcionario;
 
 public class Cena {
-    double duracaoFita;
-    int quantFita;
-    List<Fita> ListFita;
-    List<Funcionario> ListFuncionario;
+    double duracaoCena;
+    ArrayList<Fita> aListFita;
+    ArrayList<Funcionario> aListFuncionario;
 
     // Builder's
     public Cena(){
     
     }
 
-    public Cena(double duracaoFita, int quantFita, List<Fita> ListFita, List<Funcionario> ListFuncionario) {
-        this.duracaoFita = duracaoFita;
-        this.quantFita = quantFita;
-        this.ListFita = ListFita;
-        this.ListFuncionario = ListFuncionario;
+    public Cena(double duracaoCena, ArrayList<Fita> aListFita, ArrayList<Funcionario> aListFuncionario) {
+        this.duracaoCena = duracaoCena;
+        this.aListFita = aListFita;
+        this.aListFuncionario = aListFuncionario;
     }
     
     // Get's and Set's
-    public double getDuracaoFita() {
-        return duracaoFita;
+    public double getDuracaoCena() {
+        return duracaoCena;
     }
 
-    public void setDuracaoFita(double duracaoFita) {
-        this.duracaoFita = duracaoFita;
+    public void setDuracaoCena(double duracaoCena) {
+        this.duracaoCena = duracaoCena;
     }
 
-    public int getQuantFita() {
-        return quantFita;
+    public ArrayList<Fita> getListFita() {
+        return aListFita;
     }
 
-    public void setQuantFita(int quantFita) {
-        this.quantFita = quantFita;
-    }
-
-    public List<Fita> getListFita() {
-        return ListFita;
-    }
-
-    public void setListFita(List<Fita> ListFita) {
-        this.ListFita = ListFita;
+    public void setListFita(ArrayList<Fita> aListFita) {
+        this.aListFita = aListFita;
     }  
 }

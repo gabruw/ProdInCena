@@ -16,13 +16,6 @@ public class Principal extends Funcionario {
         this.salarioPrincipal = salarioPrincipal;
     }
     
-    public double CalcSalario(int numCenas, int numProducao, double salario)
-    {
-        salario = (numCenas * salario) + (numProducao * salario);
-        
-        return salario;
-    }
-    
     // Get's and Set's
     public String getNomePrincipal() {
         return nomePrincipal;
