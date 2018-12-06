@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package prodincena;
 
 import java.text.DateFormat;
@@ -11,10 +6,6 @@ import java.util.ArrayList;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- *
- * @author Snyp
- */
 public abstract class Produção {
     public String nome;    
     public LocalTime horarioInicio;
@@ -87,8 +78,5 @@ public abstract class Produção {
 
     public void setCenas(ArrayList<String> cenas) {
         this.cenas = cenas;
-    }
-
-   
-    
+    }  
 }

@@ -24,14 +24,22 @@ public class Apoio extends Funcionario{
         {
             case "CAMERA":
                 salario = 1100.00;
+                break;
             case "ILUMINADOR":
                 salario = 950.00;
+                break;
             case "CONTRARREGRA":
                 salario = 1000.00;
+                break;
             case "PRODUTOR":
                 salario = 2000.00;
+                break;
             case "MAQUIAGEM":
                 salario = 1300.00;
+                break;
+            default:
+                System.out.println("Essa profissão não está cadastrada!");
+                break;
         }
         
         return salario;
