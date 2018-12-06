@@ -12,16 +12,20 @@ import java.util.ArrayList;
  *
  * @author Leonardo
  */
-public class Novelas extends Produção {
-
-    public Novelas(String nome, String horarioInicio, int duracao, double orcamento) {
-        super(nome, horarioInicio, duracao, orcamento);
-          ArrayList<String> verbas = new ArrayList<>();
-          ArrayList<String> funcionario = new ArrayList<>();
-          ArrayList<String> cenas = new ArrayList<>();  
-    }
-    
+public class Filmes extends Produção {
    
+    boolean IsLeiIncentivo = false;
+    
+    public Filmes (String nome, String horarioInicio, int duracao, double orcamento, boolean IsLeiIncentivo) {
+        super(nome, horarioInicio, duracao, orcamento);
+        this.IsLeiIncentivo = IsLeiIncentivo;
+         ArrayList<String> verbas = new ArrayList<>();
+         ArrayList<String> funcionario = new ArrayList<>();
+         ArrayList<String> cenas = new ArrayList<>();  
+      }
+       
+    
+
     public ArrayList<String> getVerbas() {
         return verbas;
     }
@@ -95,3 +99,4 @@ public class Novelas extends Produção {
     }
     
 }
+

@@ -12,13 +12,12 @@ import java.util.ArrayList;
  *
  * @author Leonardo
  */
-public class Novelas extends Produção {
-
-    public Novelas(String nome, String horarioInicio, int duracao, double orcamento) {
+public class Propaganda extends Produção {
+    public Propaganda (String nome, String horarioInicio, int duracao, double orcamento) {
         super(nome, horarioInicio, duracao, orcamento);
           ArrayList<String> verbas = new ArrayList<>();
           ArrayList<String> funcionario = new ArrayList<>();
-          ArrayList<String> cenas = new ArrayList<>();  
+          ArrayList<String> cenas = new ArrayList<>(); 
     }
     
    
