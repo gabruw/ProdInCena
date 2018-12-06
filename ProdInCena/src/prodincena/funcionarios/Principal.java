@@ -2,7 +2,7 @@ package prodincena.funcionarios;
 
 public class Principal extends Funcionario {
     public String nomePrincipal;
-    FuncionariosPrincipal funcaoPrincipal;
+    public FuncionariosPrincipal funcaoPrincipal;
     public double salarioPrincipal;
 
     // Builder's

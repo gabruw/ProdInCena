@@ -3,27 +3,33 @@ package prodincena;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 public abstract class Produção {
     public String nome;    
-    public LocalTime horarioInicio;
-    public DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-    public String horaFormatada = formatter.format(horarioInicio);
+    public String horarioInicio;
+
     public int duracao;
     public double orcamento;
-    public ArrayList<String> verbas = new ArrayList<>();
-    public ArrayList<String> funcionario = new ArrayList<>();
-    public ArrayList<String> cenas = new ArrayList<>();
+   
 
-    public Produção(String nome, LocalTime horarioInicio, int duracao, double orcamento) {
+    public Produção(String nome, String horarioInicio, int duracao, double orcamento) {
         this.nome = nome;
         this.horarioInicio = horarioInicio;
         this.duracao = duracao;
         this.orcamento = orcamento;
+        ArrayList<String> verbas = new ArrayList<>();
+        ArrayList<String> funcionario = new ArrayList<>();
+        ArrayList<String> cenas = new ArrayList<>();
     }
 
+    private String FormatarHorario(String horarioInicio)
+    {
+        DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+        String horaFormatada = formatter.format(horarioInicio);
+        
+        return horaFormatada;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -32,11 +38,11 @@ public abstract class Produção {
         this.nome = nome;
     }
 
-    public LocalTime getHorarioInicio() {
+    public String getHorarioInicio() {
         return horarioInicio;
     }
 
-    public void setHorarioInicio(LocalTime horarioInicio) {
+    public void setHorarioInicio(String horarioInicio) {
         this.horarioInicio = horarioInicio;
     }
 
