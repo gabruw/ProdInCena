@@ -61,28 +61,4 @@ public abstract class Produção {
     public void setOrcamento(double orcamento) {
         this.orcamento = orcamento;
     }
-
-    public ArrayList<String> getVerbas() {
-        return verbas;
-    }
-
-    public void setVerbas(ArrayList<String> verbas) {
-        this.verbas = verbas;
-    }
-
-    public ArrayList<String> getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(ArrayList<String> funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public ArrayList<String> getCenas() {
-        return cenas;
-    }
-
-    public void setCenas(ArrayList<String> cenas) {
-        this.cenas = cenas;
-    }  
 }

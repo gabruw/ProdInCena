@@ -21,32 +21,8 @@ public class ShowBanda extends Produção {
          ArrayList<String> verbas = new ArrayList<>();
          ArrayList<String> funcionario = new ArrayList<>();
          ArrayList<String> cenas = new ArrayList<>();  
-      }
-
-    public ArrayList<String> getVerbas() {
-        return verbas;
     }
-
-    public void setVerbas(ArrayList<String> verbas) {
-        this.verbas = verbas;
-    }
-
-    public ArrayList<String> getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(ArrayList<String> funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public ArrayList<String> getCenas() {
-        return cenas;
-    }
-
-    public void setCenas(ArrayList<String> cenas) {
-        this.cenas = cenas;
-    }
-
+   
     public String getNome() {
         return nome;
     }
@@ -61,22 +37,6 @@ public class ShowBanda extends Produção {
 
     public void setHorarioInicio(String horarioInicio) {
         this.horarioInicio = horarioInicio;
-    }
-
-    public DateFormat getFormatter() {
-        return formatter;
-    }
-
-    public void setFormatter(DateFormat formatter) {
-        this.formatter = formatter;
-    }
-
-    public String getHoraFormatada() {
-        return horaFormatada;
-    }
-
-    public void setHoraFormatada(String horaFormatada) {
-        this.horaFormatada = horaFormatada;
     }
 
     public int getDuracao() {
