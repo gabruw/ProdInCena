@@ -9,13 +9,13 @@ public class Filme extends Producao {
     boolean IsLeiIncentivo = false;
 
     public Filme() {
-        super(null, null, 0, null, null, null);
+        super(null, null, 0, null, null);
     }
 
-    public Filme(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
-        super(nome, horarioInicio, duracao, aListCena, aListVerba, aListFuncionario);
+    public Filme(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba) {
+        super(nome, horarioInicio, duracao, aListCena, aListVerba);
     }
-
+    
     public boolean isIsLeiIncentivo() {
         return IsLeiIncentivo;
     }
@@ -68,13 +68,5 @@ public class Filme extends Producao {
 
     public void setaListVerba(ArrayList<Verba> aListVerba) {
         this.aListVerba = aListVerba;
-    }
-
-    public ArrayList<Funcionario> getaListFuncionario() {
-        return aListFuncionario;
-    }
-
-    public void setaListFuncionario(ArrayList<Funcionario> aListFuncionario) {
-        this.aListFuncionario = aListFuncionario;
     }
 }

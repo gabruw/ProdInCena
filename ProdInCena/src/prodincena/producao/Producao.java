@@ -1,7 +1,5 @@
 package prodincena.producao;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import prodincena.funcionarios.Funcionario;
 import prodincena.main.Cena;
@@ -15,15 +13,13 @@ public abstract class Producao {
    
     public ArrayList<Cena> aListCena = new ArrayList<>();
     public ArrayList<Verba> aListVerba = new ArrayList<>();
-    public ArrayList<Funcionario> aListFuncionario = new ArrayList<>();
 
-    public Producao(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
+    public Producao(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba) {
         this.nome = nome;
         this.horarioInicio = horarioInicio;
         this.duracao = duracao;
         this.aListCena = aListCena;
         this.aListVerba = aListVerba;
-        this.aListFuncionario = aListFuncionario;
     }
     
     public String getNome() {

@@ -9,11 +9,11 @@ public class ShowBanda extends Producao {
     boolean IsLeiIncentivo = false;
 
     public ShowBanda() {
-        super(null, null, 0, null, null, null);
+        super(null, null, 0, null, null);
     }
 
-    public ShowBanda(String nome, String horarioInicio, int duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
-        super(nome, horarioInicio, duracao, aListCena, aListVerba, aListFuncionario);
+    public ShowBanda(String nome, String horarioInicio, int duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba) {
+        super(nome, horarioInicio, duracao, aListCena, aListVerba);
     }
 
     public boolean isIsLeiIncentivo() {
@@ -68,13 +68,5 @@ public class ShowBanda extends Producao {
 
     public void setaListVerba(ArrayList<Verba> aListVerba) {
         this.aListVerba = aListVerba;
-    }
-
-    public ArrayList<Funcionario> getaListFuncionario() {
-        return aListFuncionario;
-    }
-
-    public void setaListFuncionario(ArrayList<Funcionario> aListFuncionario) {
-        this.aListFuncionario = aListFuncionario;
     }
 }

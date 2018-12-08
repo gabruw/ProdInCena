@@ -8,11 +8,11 @@ import prodincena.main.Verba;
 public class Novela extends Producao {
 
     public Novela() {
-        super(null, null, 0, null, null, null);
+        super(null, null, 0, null, null);
     }
 
-    public Novela(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
-        super(nome, horarioInicio, duracao, aListCena, aListVerba, aListFuncionario);
+    public Novela(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba) {
+        super(nome, horarioInicio, duracao, aListCena, aListVerba);
     }
 
     @Override
@@ -59,13 +59,5 @@ public class Novela extends Producao {
 
     public void setaListVerba(ArrayList<Verba> aListVerba) {
         this.aListVerba = aListVerba;
-    }
-
-    public ArrayList<Funcionario> getaListFuncionario() {
-        return aListFuncionario;
-    }
-
-    public void setaListFuncionario(ArrayList<Funcionario> aListFuncionario) {
-        this.aListFuncionario = aListFuncionario;
     }
 }
