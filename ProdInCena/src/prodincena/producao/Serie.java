@@ -5,13 +5,13 @@ import prodincena.funcionarios.Funcionario;
 import prodincena.main.Cena;
 import prodincena.main.Verba;
 
-public class Novelas extends Producao {
+public class Serie extends Producao {
 
-    public Novelas() {
+    public Serie() {
         super(null, null, 0, null, null, null);
     }
 
-    public Novelas(String nome, String horarioInicio, int duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
+    public Serie(String nome, String horarioInicio, int duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
         super(nome, horarioInicio, duracao, aListCena, aListVerba, aListFuncionario);
     }
 
@@ -19,29 +19,29 @@ public class Novelas extends Producao {
     public String getNome() {
         return nome;
     }
-    
+
     @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     @Override
     public String getHorarioInicio() {
         return horarioInicio;
     }
-    
+
     @Override
     public void setHorarioInicio(String horarioInicio) {
         this.horarioInicio = horarioInicio;
     }
-    
+
     @Override
-    public int getDuracao() {
+    public double getDuracao() {
         return duracao;
     }
-    
+
     @Override
-    public void setDuracao(int duracao) {
+    public void setDuracao(double duracao) {
         this.duracao = duracao;
     }
 

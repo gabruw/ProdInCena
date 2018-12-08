@@ -36,12 +36,12 @@ public class Propaganda extends Producao {
     }
 
     @Override
-    public int getDuracao() {
+    public double getDuracao() {
         return duracao;
     }
 
     @Override
-    public void setDuracao(int duracao) {
+    public void setDuracao(double duracao) {
         this.duracao = duracao;
     }
 

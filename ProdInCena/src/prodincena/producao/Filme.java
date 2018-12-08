@@ -5,14 +5,14 @@ import prodincena.funcionarios.Funcionario;
 import prodincena.main.Cena;
 import prodincena.main.Verba;
 
-public class Filmes extends Producao {
+public class Filme extends Producao {
     boolean IsLeiIncentivo = false;
 
-    public Filmes() {
+    public Filme() {
         super(null, null, 0, null, null, null);
     }
 
-    public Filmes(String nome, String horarioInicio, int duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
+    public Filme(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
         super(nome, horarioInicio, duracao, aListCena, aListVerba, aListFuncionario);
     }
 
@@ -45,12 +45,12 @@ public class Filmes extends Producao {
     }
 
     @Override
-    public int getDuracao() {
+    public double getDuracao() {
         return duracao;
     }
 
     @Override
-    public void setDuracao(int duracao) {
+    public void setDuracao(double duracao) {
         this.duracao = duracao;
     }
 

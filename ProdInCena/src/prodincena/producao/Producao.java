@@ -11,27 +11,19 @@ public abstract class Producao {
     public String nome;    
     public String horarioInicio;
 
-    public int duracao;
+    public double duracao;
    
     public ArrayList<Cena> aListCena = new ArrayList<>();
     public ArrayList<Verba> aListVerba = new ArrayList<>();
     public ArrayList<Funcionario> aListFuncionario = new ArrayList<>();
 
-    public Producao(String nome, String horarioInicio, int duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
+    public Producao(String nome, String horarioInicio, double duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
         this.nome = nome;
         this.horarioInicio = horarioInicio;
         this.duracao = duracao;
         this.aListCena = aListCena;
         this.aListVerba = aListVerba;
         this.aListFuncionario = aListFuncionario;
-    }
-
-    private String FormatarHorario(String horarioInicio)
-    {
-        DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-        String horaFormatada = formatter.format(horarioInicio);
-        
-        return horaFormatada;
     }
     
     public String getNome() {
@@ -50,11 +42,11 @@ public abstract class Producao {
         this.horarioInicio = horarioInicio;
     }
 
-    public int getDuracao() {
+    public double getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(int duracao) {
+    public void setDuracao(double duracao) {
         this.duracao = duracao;
     }
 }
