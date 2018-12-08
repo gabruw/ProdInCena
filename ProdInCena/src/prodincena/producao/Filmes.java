@@ -1,52 +1,80 @@
 package prodincena.producao;
 
-import prodincena.producao.Producao;
-import java.text.DateFormat;
 import java.util.ArrayList;
+import prodincena.funcionarios.Funcionario;
+import prodincena.main.Cena;
+import prodincena.main.Verba;
 
 public class Filmes extends Producao {
-   
     boolean IsLeiIncentivo = false;
-    
-    public Filmes (String nome, String horarioInicio, int duracao, double orcamento, boolean IsLeiIncentivo) {
-        super(nome, horarioInicio, duracao, orcamento);
-        this.IsLeiIncentivo = IsLeiIncentivo;
-         ArrayList<String> verbas = new ArrayList<>();
-         ArrayList<String> funcionario = new ArrayList<>();
-         ArrayList<String> cenas = new ArrayList<>();  
+
+    public Filmes() {
+        super(null, null, 0, null, null, null);
     }
-    
+
+    public Filmes(String nome, String horarioInicio, int duracao, ArrayList<Cena> aListCena, ArrayList<Verba> aListVerba, ArrayList<Funcionario> aListFuncionario) {
+        super(nome, horarioInicio, duracao, aListCena, aListVerba, aListFuncionario);
+    }
+
+    public boolean isIsLeiIncentivo() {
+        return IsLeiIncentivo;
+    }
+
+    public void setIsLeiIncentivo(boolean IsLeiIncentivo) {
+        this.IsLeiIncentivo = IsLeiIncentivo;
+    }
+
+    @Override
     public String getNome() {
         return nome;
     }
 
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    @Override
     public String getHorarioInicio() {
         return horarioInicio;
     }
 
+    @Override
     public void setHorarioInicio(String horarioInicio) {
         this.horarioInicio = horarioInicio;
     }
-    
+
+    @Override
     public int getDuracao() {
         return duracao;
     }
 
+    @Override
     public void setDuracao(int duracao) {
         this.duracao = duracao;
     }
 
-    public double getOrcamento() {
-        return orcamento;
+    public ArrayList<Cena> getaListCena() {
+        return aListCena;
     }
 
-    public void setOrcamento(double orcamento) {
-        this.orcamento = orcamento;
+    public void setaListCena(ArrayList<Cena> aListCena) {
+        this.aListCena = aListCena;
     }
-    
+
+    public ArrayList<Verba> getaListVerba() {
+        return aListVerba;
+    }
+
+    public void setaListVerba(ArrayList<Verba> aListVerba) {
+        this.aListVerba = aListVerba;
+    }
+
+    public ArrayList<Funcionario> getaListFuncionario() {
+        return aListFuncionario;
+    }
+
+    public void setaListFuncionario(ArrayList<Funcionario> aListFuncionario) {
+        this.aListFuncionario = aListFuncionario;
+    }
 }
-

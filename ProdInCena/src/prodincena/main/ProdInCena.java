@@ -130,7 +130,10 @@ public class ProdInCena {
     
     public double GetValorDespesa()
     {
-    
+        for()
+        {
+        
+        }
     }
     
     //Main
