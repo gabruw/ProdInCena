@@ -1,18 +1,20 @@
-package prodincena;
+package prodincena.producao;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import prodincena.main.Cena;
 
-public abstract class Produção {
+public abstract class Producao {
     public String nome;    
     public String horarioInicio;
 
     public int duracao;
     public double orcamento;
    
+    public ArrayList<Cena> aListCena = new ArrayList<>();
 
-    public Produção(String nome, String horarioInicio, int duracao, double orcamento) {
+    public Producao(String nome, String horarioInicio, int duracao, double orcamento) {
         this.nome = nome;
         this.horarioInicio = horarioInicio;
         this.duracao = duracao;

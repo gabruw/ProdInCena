@@ -1,9 +1,10 @@
-package prodincena;
+package prodincena.producao;
 
+import prodincena.producao.Producao;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-public class Filmes extends Produção {
+public class Filmes extends Producao {
    
     boolean IsLeiIncentivo = false;
     

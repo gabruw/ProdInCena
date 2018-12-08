@@ -1,17 +1,23 @@
-package prodincena;
+package prodincena.producao;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-public class Novelas extends Produção {
+public class ShowBanda extends Producao {
+    boolean IsLeiIncentivo = false;
 
-    public Novelas(String nome, String horarioInicio, int duracao, double orcamento) {
-        super(nome, horarioInicio, duracao, orcamento);
-          ArrayList<String> verbas = new ArrayList<>();
-          ArrayList<String> funcionario = new ArrayList<>();
-          ArrayList<String> cenas = new ArrayList<>();  
+    public ShowBanda() {
+        super(null, null, 0, 0);
     }
-
+    
+    public ShowBanda (String nome, String horarioInicio, int duracao, double orcamento, boolean IsLeiIncentivo) {
+        super(nome, horarioInicio, duracao, orcamento);
+        this.IsLeiIncentivo = IsLeiIncentivo;
+         ArrayList<String> verbas = new ArrayList<>();
+         ArrayList<String> funcionario = new ArrayList<>();
+         ArrayList<String> cenas = new ArrayList<>();  
+    }
+   
     public String getNome() {
         return nome;
     }
@@ -27,7 +33,7 @@ public class Novelas extends Produção {
     public void setHorarioInicio(String horarioInicio) {
         this.horarioInicio = horarioInicio;
     }
-    
+
     public int getDuracao() {
         return duracao;
     }

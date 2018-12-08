@@ -1,7 +1,7 @@
-package prodincena;
+package prodincena.main;
 
+import prodincena.producao.Producao;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import prodincena.funcionarios.Apoio;
 import prodincena.funcionarios.Funcionario;
@@ -14,22 +14,48 @@ public class ProdInCena {
     
     ArrayList<Verba> aListVerba = new ArrayList<>();
     ArrayList<Cena> aListCena = new ArrayList<>();
+    ArrayList<Producao> aListProducao = new ArrayList<>();
     
-
-    public int op = 0;
+    //Variáveis de opção
+    public int opi = 0;
     public String ops = "";
     public String opsf = "";
     public double opd = 0.0;
+    public double opd2 = 0.0;
     public boolean opb = false;
     
-    public double CalcSalario(int numCenas, int numProducao, double salario)
-    {
-        salario = (numCenas * salario) + (numProducao * salario);
+    //Método que calcula o salário do Funcionario Principal
+    public double CalcSalarioPrincipal(String nome, double salarioPorCena, double salarioPorProducao)
+    {   
+        boolean checkProd = false;
+        int countProducao = 0;
+        int countCena = 0;
         
-        return salario;
+        for(Producao producao : aListProducao)
+        {
+            for(Cena cena : producao.aListCena)
+            {
+                for(Funcionario funcionario : cena.aListFuncionario)
+                {
+                    if(funcionario.nome.equals(nome))
+                    {
+                        countCena++;
+                        checkProd = true;
+                    }
+                }
+            }
+            
+            if(checkProd)
+            {
+                countProducao++;
+            }
+        }
+        
+        return ((salarioPorCena * countCena) + (salarioPorProducao * countProducao));
     }
     
-    public double CalcSalario(FuncionariosApoio funcaoApoio)
+    //Método que calcula o salário do Funcionario Apoio
+    public double CalcSalarioApoio(FuncionariosApoio funcaoApoio)
     {
         double salario = 0.0;
         String funcaoParsed = funcaoApoio.toString();
@@ -59,6 +85,7 @@ public class ProdInCena {
         return salario;
     }
     
+    //Método que cadastra um Funcionario em uma Cena
     protected void CadastrarFuncionario(Cena newCena, boolean IsFuncionarioPrincipal, String nome, String funcao)
     {
         if(IsFuncionarioPrincipal)
@@ -68,29 +95,53 @@ public class ProdInCena {
             newFuncionarioPrincipal.funcaoPrincipal = FuncionariosPrincipal.valueOf(funcao);
             newFuncionarioPrincipal.nome = nome;
             
+            System.out.println("Digite o nome do funcionário:");
+            ops = input.next();
+               
+            System.out.println("Digite o salário por cena:");
+            opd = input.nextDouble();
+                
+            System.out.println("Digite o salário por produção:");
+            opd2 = input.nextDouble();
+            
+            newFuncionarioPrincipal.salario = CalcSalarioPrincipal(ops, opd, opd2);
+            
             newCena.aListFuncionario.add(newFuncionarioPrincipal);
         }
         else if(!IsFuncionarioPrincipal)
         {
             Apoio newFuncionarioApoio = new Apoio();
             
-            double salario = CalcSalario(FuncionariosApoio.valueOf(funcao));
-            
             newFuncionarioApoio.funcaoApoio = FuncionariosApoio.valueOf(funcao);
             newFuncionarioApoio.nome = nome;
-            newFuncionarioApoio.salario = salario;
+            newFuncionarioApoio.salario = CalcSalarioApoio(FuncionariosApoio.valueOf(funcao));
             
             newCena.aListFuncionario.add(newFuncionarioApoio);
         }
     }
     
+    public void PrintListaProducao(ArrayList<Producao> aListProducao)
+    {
+        for(Producao producao : aListProducao)
+        {
+            System.out.println("[" + aListProducao.indexOf(producao)  + "] - " + producao.nome);
+        }
+    }
+    
+    public double GetValorDespesa()
+    {
+    
+    }
+    
+    //Main
     public void main(String[] args) {
         System.out.println("Selecione uma opção abaixo:");
         System.out.println("1- Cadastrar Cena");
         System.out.println("2- Criar Programa");
-        op = input.nextInt();
+        System.out.println("3- Relatorio Econômico");
+        opi = input.nextInt();
         
-        switch(op)
+        switch(opi)
         {
             case 1:
                 Cena newCena = new Cena(); 
@@ -101,6 +152,7 @@ public class ProdInCena {
                 
                 newCena.duracaoCena = opd;
                 
+                //Cadastra Funcionario na Cena
                 System.out.println("É necessário cadastrar o(s) funcionario(s) que participaram da cena:");
                 System.out.println("O Funcionario a ser cadastrado é um Ator ou Dublê?");
                 opb = input.nextBoolean();
@@ -111,13 +163,14 @@ public class ProdInCena {
                 System.out.println("Qual a função deste funcionário?");
                 opsf = input.next();
                 
-                this.CadastrarFuncionario(newCena, opb, ops, opsf, opd);
+                this.CadastrarFuncionario(newCena, opb, ops, opsf);
                 
+                //Cadastra a Cena na Fita
                 double capMinutosTot = 0;
+                System.out.println("É necessário cadastrar a(s) fita(s) aonde a cena foi gravada:");
                 while(newCena.duracaoCena >= capMinutosTot)
                 {   
-                    System.out.println("É necessário cadastrar a(s) fita(s) aonde a cena foi gravada:");
-                    System.out.println("Digite o numero de série da fita:");
+                    System.out.println("Digite o número de série da fita:");
                     ops = input.next();
 
                     System.out.println("Digite a capacidade da fita:");
@@ -138,8 +191,16 @@ public class ProdInCena {
             case 2:
                 
                 break;
+            
+            case 3:
+                System.out.println("Selecione uma produção:");
+                this.PrintListaProducao(aListProducao);
+                opi = input.nextInt();
+                
+                
+                
+                break;
         }
         
     }
-
 }

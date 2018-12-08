@@ -1,4 +1,4 @@
-package prodincena;
+package prodincena.main;
 
 public class Fita {
     String numSerie;

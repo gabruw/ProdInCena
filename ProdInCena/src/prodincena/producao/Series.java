@@ -1,14 +1,19 @@
-package prodincena;
-
+package prodincena.producao;
 import java.text.DateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Propaganda extends Produção {
-    public Propaganda (String nome, String horarioInicio, int duracao, double orcamento) {
+
+public class Series extends Producao {
+    public Series() {
+        super(null, null, 0, 0);
+    }
+    
+    public Series(String nome, String horarioInicio, int duracao, double orcamento) {
         super(nome, horarioInicio, duracao, orcamento);
-          ArrayList<String> verbas = new ArrayList<>();
-          ArrayList<String> funcionario = new ArrayList<>();
-          ArrayList<String> cenas = new ArrayList<>(); 
+           ArrayList<String> verbas = new ArrayList<>();
+           ArrayList<String> funcionario = new ArrayList<>();
+           ArrayList<String> cenas = new ArrayList<>();  
     }
     
     public String getNome() {
@@ -42,5 +47,14 @@ public class Propaganda extends Produção {
     public void setOrcamento(double orcamento) {
         this.orcamento = orcamento;
     }
+    ;
     
-}
+    }
+    
+   
+    
+    
+  
+    
+    
+

@@ -1,19 +1,20 @@
-package prodincena;
+package prodincena.producao;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-public class ShowBanda extends Produção {
-    boolean IsLeiIncentivo = false;
-    
-   public ShowBanda (String nome, String horarioInicio, int duracao, double orcamento, boolean IsLeiIncentivo) {
-        super(nome, horarioInicio, duracao, orcamento);
-        this.IsLeiIncentivo = IsLeiIncentivo;
-         ArrayList<String> verbas = new ArrayList<>();
-         ArrayList<String> funcionario = new ArrayList<>();
-         ArrayList<String> cenas = new ArrayList<>();  
+public class Propaganda extends Producao {
+    public Propaganda() {
+        super(null, null, 0, 0);
     }
-   
+    
+    public Propaganda (String nome, String horarioInicio, int duracao, double orcamento) {
+        super(nome, horarioInicio, duracao, orcamento);
+          ArrayList<String> verbas = new ArrayList<>();
+          ArrayList<String> funcionario = new ArrayList<>();
+          ArrayList<String> cenas = new ArrayList<>(); 
+    }
+    
     public String getNome() {
         return nome;
     }

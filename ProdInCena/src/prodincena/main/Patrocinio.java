@@ -1,6 +1,6 @@
-package prodincena;
+package prodincena.main;
 
-public enum Patrocionio {
+public enum Patrocinio {
     EMPRESA_PUBLICA("Empresa Publica"), 
     EMPRESA_PRIVADA("Empresa Privada"), 
     LIC("Leis de Incentivo a Cultura"), 
@@ -8,7 +8,7 @@ public enum Patrocionio {
     
     public String valPatrocinio;
 
-    private Patrocionio(String valPatrocinio) {
+    private Patrocinio(String valPatrocinio) {
         this.valPatrocinio = valPatrocinio;
     }
 

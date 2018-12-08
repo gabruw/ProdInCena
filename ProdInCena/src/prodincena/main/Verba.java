@@ -1,7 +1,7 @@
-package prodincena;
+package prodincena.main;
 
 public class Verba {
-    Patrocionio tipo;
+    Patrocinio tipo;
     double valor;
 
     // Builder's
@@ -9,17 +9,17 @@ public class Verba {
     
     }
     
-    public Verba(Patrocionio tipo, double valor) {
+    public Verba(Patrocinio tipo, double valor) {
         this.tipo = tipo;
         this.valor = valor;
     }
     
     // Get's and Set's
-    public Patrocionio getTipo() {
+    public Patrocinio getTipo() {
         return tipo;
     }
 
-    public void setTipo(Patrocionio tipo) {
+    public void setTipo(Patrocinio tipo) {
         this.tipo = tipo;
     }
 
