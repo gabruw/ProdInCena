@@ -26,6 +26,7 @@ public class ProdInCena {
     //Variáveis de opção
     public int opi = 0;
     public String ops = "";
+    public Patrocinio opp;
     public FuncionariosApoio opfa;
     public FuncionariosPrincipal opfp;
     public double opd = 0.0;
@@ -129,7 +130,7 @@ public class ProdInCena {
             Verba newVerba = new Verba();
 
             System.out.println("Digite o tipo da verba: [ToUpper[1] - ToLower[0,*]]");
-            ops = input.next();
+            opp = Patrocinio.valueOf(input.next().toUpperCase());
 
             if (!(tipoProducao.equals("Filme") || tipoProducao.equals("ShowBanda"))) {
                 if (ops.equals("Leis de Incentivo a Cultura")) {
@@ -138,7 +139,7 @@ public class ProdInCena {
                 }
             }
 
-            newVerba.tipo = Patrocinio.valueOf(ops);
+            newVerba.tipo = opp;
 
             System.out.println("Digite o valor da verba: ");
             opd = input.nextDouble();
