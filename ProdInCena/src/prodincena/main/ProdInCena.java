@@ -315,9 +315,6 @@ public class ProdInCena {
                         System.out.println("Digite o nome do Funcionário: ");
                         ops = input.next();
 
-                        System.out.println("Qual a função deste funcionário?");
-                        opfa = FuncionariosApoio.valueOf(input.next());
-
                         CadastrarFuncionario(newCena, opb, ops);
 
                         System.out.println("Você deseja cadastrar outro funcionario? S/N");
