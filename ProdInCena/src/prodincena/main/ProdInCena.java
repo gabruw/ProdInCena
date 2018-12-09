@@ -61,9 +61,8 @@ public class ProdInCena {
     //Método que calcula o salário do Funcionario Apoio
     public double CalcSalarioApoio(FuncionariosApoio funcaoApoio) {
         double salario = 0.0;
-        String funcaoParsed = funcaoApoio.toString();
 
-        switch (funcaoParsed) {
+        switch (funcaoApoio.toString()) {
             case "CAMERA":
                 salario = 1100.00;
                 break;
@@ -91,22 +90,9 @@ public class ProdInCena {
     protected void CadastrarFuncionario(Cena newCena, boolean IsFuncionarioPrincipal, String nome, String funcao) {
         if (IsFuncionarioPrincipal) {
             Principal newFuncionarioPrincipal = new Principal();
-
-            switch(funcao)
-            {
-                case "ATOR":
-                    newFuncionarioPrincipal.funcaoPrincipal = FuncionariosPrincipal.ATOR;
-                    newFuncionarioPrincipal.tipo = FuncionariosPrincipal.ATOR.toString();
-                    break;
-                case "DUBLE":
-                    newFuncionarioPrincipal.funcaoPrincipal = FuncionariosPrincipal.DUBLE;
-                    newFuncionarioPrincipal.tipo = FuncionariosPrincipal.DUBLE.toString();
-                    break;
-                default:
-                    System.out.println("Não existe um funcionario com esse tipo.");
-                    break;
-            }
-            newFuncionarioPrincipal.nome = nome;
+            
+            newFuncionarioPrincipal.setFuncaoPrincipal(FuncionariosPrincipal.valueOf(funcao.toUpperCase()));
+            newFuncionarioPrincipal.setNomePrincipal(nome);
 
             System.out.println("Digite o nome do funcionário:");
             ops = input.next();
@@ -117,41 +103,17 @@ public class ProdInCena {
             System.out.println("Digite o salário por produção:");
             opd2 = input.nextDouble();
             
-            
-            newFuncionarioPrincipal.salario = CalcSalarioPrincipal(ops, opd, opd2);
+            newFuncionarioPrincipal.setTipo(FuncionariosPrincipal.valueOf(funcao).toString().toUpperCase());
+            newFuncionarioPrincipal.setSalarioPrincipal(CalcSalarioPrincipal(ops, opd, opd2));
 
             newCena.aListFuncionario.add(newFuncionarioPrincipal);
         } else if (!IsFuncionarioPrincipal) {
             Apoio newFuncionarioApoio = new Apoio();
-            
-            switch (funcao) {
-                    case "CAMERA":
-                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.CAMERA;
-                        newFuncionarioApoio.tipo = FuncionariosApoio.CAMERA.toString();
-                        break;
-                    case "ILUMINADOR":
-                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.ILUMINADOR;
-                        newFuncionarioApoio.tipo = FuncionariosApoio.ILUMINADOR.toString();
-                        break;
-                    case "CONTRARREGRA":
-                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.CONTRARREGRA;
-                        newFuncionarioApoio.tipo = FuncionariosApoio.CONTRARREGRA.toString();
-                        break;
-                    case "PRODUTOR":
-                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.PRODUTOR;
-                        newFuncionarioApoio.tipo = FuncionariosApoio.PRODUTOR.toString();
-                        break;
-                    case "MAQUIAGEM":
-                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.MAQUIAGEM;
-                        newFuncionarioApoio.tipo = FuncionariosApoio.MAQUIAGEM.toString();
-                        break;
-                    default:
-                        System.out.println("Não existe um funcionario com esse tipo.");
-                        break;
-                }
 
-            newFuncionarioApoio.nome = nome;
-            newFuncionarioApoio.salario = CalcSalarioApoio(FuncionariosApoio.valueOf(funcao));
+            newFuncionarioApoio.setFuncaoApoio(FuncionariosApoio.valueOf(funcao));
+            newFuncionarioApoio.setNomeApoio(nome);
+            newFuncionarioApoio.setSalarioApoio(CalcSalarioApoio(FuncionariosApoio.valueOf(funcao.toUpperCase())));
+            newFuncionarioApoio.setTipo(FuncionariosPrincipal.valueOf(funcao).toString().toUpperCase());
             
             newCena.aListFuncionario.add(newFuncionarioApoio);
         }
@@ -288,7 +250,7 @@ public class ProdInCena {
                     case "ATOR":
                         System.out.println("[Ator]");
                         break;
-                    case "DUBLÊ":
+                    case "DUBLE":
                         System.out.println("[Dublê]");
                         break;
                     case "CAMERA":
@@ -438,8 +400,6 @@ public class ProdInCena {
                     opd = input.nextDouble();
 
                     newProducao.duracao = opd;
-
-                    System.out.println("");
 
                     CadastrarVerba(newProducao, tipoProducao);
 
