@@ -307,7 +307,7 @@ public class ProdInCena {
                     while (opb == false) {
                         //Cadastra Funcionario na Cena
                         System.out.println("É necessário cadastrar o(s) funcionario(s) que participaram da cena:");
-                        System.out.println("O Funcionario a ser cadastrado é um Ator ou Dublê?");
+                        System.out.println("O Funcionario a ser cadastrado é um funcionario principal? [true/false]");
                         opb = input.nextBoolean();
 
                         System.out.println("Digite o nome do Funcionário: ");
@@ -320,7 +320,9 @@ public class ProdInCena {
 
                         System.out.println("Você deseja cadastrar outro funcionario? S/N");
                         ops = input.next();
-
+                        
+                        opb = false;
+                        
                         if (ops.equals("N")) {
                             opb = true;
                         }
