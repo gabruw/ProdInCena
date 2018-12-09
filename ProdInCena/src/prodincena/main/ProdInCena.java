@@ -92,7 +92,20 @@ public class ProdInCena {
         if (IsFuncionarioPrincipal) {
             Principal newFuncionarioPrincipal = new Principal();
 
-            newFuncionarioPrincipal.funcaoPrincipal = FuncionariosPrincipal.valueOf(funcao);
+            switch(funcao)
+            {
+                case "ATOR":
+                    newFuncionarioPrincipal.funcaoPrincipal = FuncionariosPrincipal.ATOR;
+                    newFuncionarioPrincipal.tipo = FuncionariosPrincipal.ATOR.toString();
+                    break;
+                case "DUBLE":
+                    newFuncionarioPrincipal.funcaoPrincipal = FuncionariosPrincipal.DUBLE;
+                    newFuncionarioPrincipal.tipo = FuncionariosPrincipal.DUBLE.toString();
+                    break;
+                default:
+                    System.out.println("Não existe um funcionario com esse tipo.");
+                    break;
+            }
             newFuncionarioPrincipal.nome = nome;
 
             System.out.println("Digite o nome do funcionário:");
@@ -104,17 +117,41 @@ public class ProdInCena {
             System.out.println("Digite o salário por produção:");
             opd2 = input.nextDouble();
             
-            newFuncionarioPrincipal.tipo = FuncionariosPrincipal.valueOf(funcao).toString();
+            
             newFuncionarioPrincipal.salario = CalcSalarioPrincipal(ops, opd, opd2);
 
             newCena.aListFuncionario.add(newFuncionarioPrincipal);
         } else if (!IsFuncionarioPrincipal) {
             Apoio newFuncionarioApoio = new Apoio();
+            
+            switch (funcao) {
+                    case "CAMERA":
+                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.CAMERA;
+                        newFuncionarioApoio.tipo = FuncionariosApoio.CAMERA.toString();
+                        break;
+                    case "ILUMINADOR":
+                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.ILUMINADOR;
+                        newFuncionarioApoio.tipo = FuncionariosApoio.ILUMINADOR.toString();
+                        break;
+                    case "CONTRARREGRA":
+                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.CONTRARREGRA;
+                        newFuncionarioApoio.tipo = FuncionariosApoio.CONTRARREGRA.toString();
+                        break;
+                    case "PRODUTOR":
+                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.PRODUTOR;
+                        newFuncionarioApoio.tipo = FuncionariosApoio.PRODUTOR.toString();
+                        break;
+                    case "MAQUIAGEM":
+                        newFuncionarioApoio.funcaoApoio = FuncionariosApoio.MAQUIAGEM;
+                        newFuncionarioApoio.tipo = FuncionariosApoio.MAQUIAGEM.toString();
+                        break;
+                    default:
+                        System.out.println("Não existe um funcionario com esse tipo.");
+                        break;
+                }
 
-            newFuncionarioApoio.funcaoApoio = FuncionariosApoio.valueOf(funcao);
             newFuncionarioApoio.nome = nome;
             newFuncionarioApoio.salario = CalcSalarioApoio(FuncionariosApoio.valueOf(funcao));
-            newFuncionarioApoio.tipo = FuncionariosPrincipal.valueOf(funcao).toString();
             
             newCena.aListFuncionario.add(newFuncionarioApoio);
         }
