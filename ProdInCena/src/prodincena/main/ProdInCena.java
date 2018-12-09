@@ -284,45 +284,46 @@ public class ProdInCena {
     }
     
     //Main
-    public void main(String[] args) {
-        opb = false;
-        while (opb = false) {
+    public static void main(String[] args) {
+        ProdInCena prod = new ProdInCena();
+        prod.opb = false;
+        while (prod.opb = false) {
             System.out.println("Selecione uma opção abaixo:");
             System.out.println("1- Cadastrar Cena");
             System.out.println("2- Criar Programa");
             System.out.println("3- Relatorio Econômico");
-            opi = input.nextInt();
+            prod.opi = prod.input.nextInt();
 
-            switch (opi) {
+            switch (prod.opi) {
                 case 1:
                     Cena newCena = new Cena();
                     Fita newFita = new Fita();
 
                     System.out.println("Digite a duração da cena: ");
-                    opd = input.nextDouble();
+                    prod.opd = prod.input.nextDouble();
 
-                    newCena.duracaoCena = opd;
+                    newCena.duracaoCena = prod.opd;
 
-                    opb = false;
-                    while (opb == false) {
+                    prod.opb = false;
+                    while (prod.opb == false) {
                         //Cadastra Funcionario na Cena
                         System.out.println("É necessário cadastrar o(s) funcionario(s) que participaram da cena:");
                         System.out.println("O Funcionario a ser cadastrado é um Ator ou Dublê?");
-                        opb = input.nextBoolean();
+                        prod.opb = prod.input.nextBoolean();
 
                         System.out.println("Digite o nome do Funcionário: ");
-                        ops = input.next();
+                        prod.ops = prod.input.next();
 
                         System.out.println("Qual a função deste funcionário?");
-                        opsf = input.next();
+                        prod.opsf = prod.input.next();
 
-                        this.CadastrarFuncionario(newCena, opb, ops, opsf);
+                        prod.CadastrarFuncionario(newCena, prod.opb, prod.ops, prod.opsf);
 
                         System.out.println("Você deseja cadastrar outro funcionario? S/N");
-                        ops = input.next();
+                        prod.ops = prod.input.next();
 
-                        if (ops.equals("N")) {
-                            opb = true;
+                        if (prod.ops.equals("N")) {
+                            prod.opb = true;
                         }
                     }
 
@@ -331,20 +332,20 @@ public class ProdInCena {
                     System.out.println("É necessário cadastrar a(s) fita(s) aonde a cena foi gravada:");
                     while (newCena.duracaoCena >= capMinutosTot) {
                         System.out.println("Digite o número de série da fita:");
-                        ops = input.next();
+                        prod.ops = prod.input.next();
 
                         System.out.println("Digite a capacidade da fita:");
-                        opd = input.nextDouble();
+                        prod.opd = prod.input.nextDouble();
 
-                        newFita.numSerie = ops;
-                        newFita.capMinutos = opd;
+                        newFita.numSerie = prod.ops;
+                        newFita.capMinutos = prod.opd;
 
                         newCena.aListFita.add(newFita);
 
-                        capMinutosTot += opd;
+                        capMinutosTot += prod.opd;
                     }
 
-                    aListCena.add(newCena);
+                    prod.aListCena.add(newCena);
 
                     System.out.println("Cena cadastrada com sucesso!");
                     break;
@@ -353,32 +354,32 @@ public class ProdInCena {
                     Producao newProducao = new ShowBanda();
 
                     System.out.println("Digite o tipo da produção: [ToUpper[1] - ToLower[0,*]");
-                    ops = input.next();
+                    prod.ops = prod.input.next();
 
-                    switch (ops) {
+                    switch (prod.ops) {
                         case "Filme":
                             newProducao = new Filme();
-                            tipoProducao = "Filme";
+                            prod.tipoProducao = "Filme";
                             break;
 
                         case "Novela":
                             newProducao = new Novela();
-                            tipoProducao = "Novela";
+                            prod.tipoProducao = "Novela";
                             break;
 
                         case "Propaganda":
                             newProducao = new Propaganda();
-                            tipoProducao = "Propaganda";
+                            prod.tipoProducao = "Propaganda";
                             break;
 
                         case "Serie":
                             newProducao = new Serie();
-                            tipoProducao = "Serie";
+                            prod.tipoProducao = "Serie";
                             break;
 
                         case "ShowBanda":
                             newProducao = new ShowBanda();
-                            tipoProducao = "ShowBanda";
+                            prod.tipoProducao = "ShowBanda";
                             break;
 
                         default:
@@ -387,29 +388,29 @@ public class ProdInCena {
                     }
 
                     System.out.println("Digite o nome da produção:");
-                    ops = input.next();
+                    prod.ops = prod.input.next();
 
-                    newProducao.nome = ops;
+                    newProducao.nome = prod.ops;
 
                     System.out.println("Digite o horario de inicio da produção [numeros todos juntos]:");
-                    ops = input.next();
+                    prod.ops = prod.input.next();
 
-                    newProducao.horarioInicio = this.FormatarHorario(ops);
+                    newProducao.horarioInicio = prod.FormatarHorario(prod.ops);
 
                     System.out.println("Digite a duração da produção:");
-                    opd = input.nextDouble();
+                    prod.opd = prod.input.nextDouble();
 
-                    newProducao.duracao = opd;
+                    newProducao.duracao = prod.opd;
 
                     System.out.println("");
 
-                    this.CadastrarVerba(newProducao, tipoProducao);
+                    prod.CadastrarVerba(newProducao, prod.tipoProducao);
 
                     System.out.println("É necessário selecionar as cenas que copoem a produção:");
 
-                    this.CadastrarCenasPrograma(aListCena, newProducao);
+                    prod.CadastrarCenasPrograma(prod.aListCena, newProducao);
 
-                    aListProducao.add(newProducao);
+                    prod.aListProducao.add(newProducao);
 
                     System.out.println("Produção cadastrada com sucesso!");
                     break;
@@ -417,39 +418,39 @@ public class ProdInCena {
                 case 3:
                     System.out.println("Selecione uma produção:");
 
-                    this.PrintListaProducao(aListProducao);
-                    opi = input.nextInt();
+                    prod.PrintListaProducao(prod.aListProducao);
+                    prod.opi = prod.input.nextInt();
 
-                    newProducao = aListProducao.get(opi);
+                    newProducao = prod.aListProducao.get(prod.opi);
                     
                     System.out.println("Lucro Total: ");
-                    System.out.print(this.LucroFinal(this.GetValorVerba(newProducao.aListVerba), this.GetValorFuncionario(newProducao.aListCena)));
+                    System.out.print(prod.LucroFinal(prod.GetValorVerba(newProducao.aListVerba), prod.GetValorFuncionario(newProducao.aListCena)));
                     
                     System.out.println("Verba Total: ");
-                    System.out.print(this.GetValorVerba(newProducao.aListVerba));
+                    System.out.print(prod.GetValorVerba(newProducao.aListVerba));
 
                     System.out.println("Gasto com os funcionario: ");
-                    System.out.print(this.GetValorFuncionario(newProducao.aListCena));
+                    System.out.print(prod.GetValorFuncionario(newProducao.aListCena));
 
                     System.out.println("Quantidade de minutos gravadas: ");
-                    System.out.print(this.GetMinutosGravadas(newProducao.aListCena));
+                    System.out.print(prod.GetMinutosGravadas(newProducao.aListCena));
 
                     System.out.println("Quantidade de fitas com gravação: ");
-                    System.out.print(this.GetQuantidadeFitas(newProducao.aListCena));
+                    System.out.print(prod.GetQuantidadeFitas(newProducao.aListCena));
 
                     System.out.println("Quantidade de cenas gravadas: ");
                     System.out.print(newProducao.aListCena.size());
 
                     System.out.println("Tipo, Nome e Salario de cada Funcionario: ");
-                    this.GetEnvolvidos(newProducao.aListCena);
+                    prod.GetEnvolvidos(newProducao.aListCena);
                     break;
             }
 
             System.out.println("Você deseja voltar para o menu principal? S/N");
-            ops = input.next();
+            prod.ops = prod.input.next();
 
-            if (ops.equals("S")) {
-                opb = false;
+            if (prod.ops.equals("S")) {
+                prod.opb = false;
             } else {
                 System.out.println("Obrigado por utilizar o sistema.");
                 break;
