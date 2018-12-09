@@ -1,6 +1,5 @@
 package prodincena.main;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import prodincena.producao.Producao;
 import java.util.ArrayList;
@@ -27,12 +26,13 @@ public class ProdInCena {
     //Variáveis de opção
     public int opi = 0;
     public String ops = "";
-    public String opsf = "";
+    public FuncionariosApoio opfa;
+    public FuncionariosPrincipal opfp;
     public double opd = 0.0;
     public double opd2 = 0.0;
     public boolean opb = false;
 
-    String tipoProducao = "";
+    public String tipoProducao = "";
 
     //Método que calcula o salário do Funcionario Principal
     public double CalcSalarioPrincipal(String nome, double salarioPorCena, double salarioPorProducao) {
@@ -87,34 +87,37 @@ public class ProdInCena {
     }
 
     //Método que cadastra um Funcionario em uma Cena
-    protected void CadastrarFuncionario(Cena newCena, boolean IsFuncionarioPrincipal, String nome, String funcao) {
+    protected void CadastrarFuncionario(Cena newCena, boolean IsFuncionarioPrincipal, String nome) {
         if (IsFuncionarioPrincipal) {
             Principal newFuncionarioPrincipal = new Principal();
-            
-            newFuncionarioPrincipal.setFuncaoPrincipal(FuncionariosPrincipal.valueOf(funcao.toUpperCase()));
-            newFuncionarioPrincipal.setNomePrincipal(nome);
 
-            System.out.println("Digite o nome do funcionário:");
-            ops = input.next();
+            System.out.println("Qual a função deste funcionário?");
+            opfp = FuncionariosPrincipal.valueOf(input.next().toUpperCase());
+                        
+            newFuncionarioPrincipal.setFuncaoPrincipal(opfp);
+            newFuncionarioPrincipal.setNomePrincipal(nome);
 
             System.out.println("Digite o salário por cena:");
             opd = input.nextDouble();
 
             System.out.println("Digite o salário por produção:");
             opd2 = input.nextDouble();
-            
-            newFuncionarioPrincipal.setTipo(FuncionariosPrincipal.valueOf(funcao).toString().toUpperCase());
-            newFuncionarioPrincipal.setSalarioPrincipal(CalcSalarioPrincipal(ops, opd, opd2));
+
+            newFuncionarioPrincipal.setTipo(opfp.toString().toUpperCase());
+            newFuncionarioPrincipal.setSalarioPrincipal(CalcSalarioPrincipal(nome, opd, opd2));
 
             newCena.aListFuncionario.add(newFuncionarioPrincipal);
         } else if (!IsFuncionarioPrincipal) {
             Apoio newFuncionarioApoio = new Apoio();
-
-            newFuncionarioApoio.setFuncaoApoio(FuncionariosApoio.valueOf(funcao));
-            newFuncionarioApoio.setNomeApoio(nome);
-            newFuncionarioApoio.setSalarioApoio(CalcSalarioApoio(FuncionariosApoio.valueOf(funcao.toUpperCase())));
-            newFuncionarioApoio.setTipo(FuncionariosPrincipal.valueOf(funcao).toString().toUpperCase());
             
+            System.out.println("Qual a função deste funcionário?");
+            opfa = FuncionariosApoio.valueOf(input.next().toUpperCase());
+
+            newFuncionarioApoio.setFuncaoApoio(opfa);
+            newFuncionarioApoio.setNomeApoio(nome);
+            newFuncionarioApoio.setSalarioApoio(CalcSalarioApoio(opfa));
+            newFuncionarioApoio.setTipo(opfa.toString().toUpperCase());
+
             newCena.aListFuncionario.add(newFuncionarioApoio);
         }
     }
@@ -174,8 +177,9 @@ public class ProdInCena {
     }
 
     private String FormatarHorario(String horarioInicio) {
-        DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-        String horaFormatada = formatter.format(horarioInicio);
+        SimpleDateFormat formatter1 = new SimpleDateFormat("HHmmss");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("HH:mm:ss");
+        String horaFormatada = formatter2.format(formatter1.format(horarioInicio));
 
         return horaFormatada;
     }
@@ -272,19 +276,18 @@ public class ProdInCena {
                         System.out.println("Essa profissão não está cadastrada!");
                         break;
                 }
-                
+
                 System.out.println("Nome: " + funcionario.nome);
                 System.out.println("Salario: " + funcionario.salario);
             }
         }
     }
 
-    public double LucroFinal(double verbaTot, double gastoFuncionarioTot)
-    {
+    public double LucroFinal(double verbaTot, double gastoFuncionarioTot) {
         return verbaTot - gastoFuncionarioTot;
     }
-    
-    public void Menu(){
+
+    public void Menu() {
         opb = false;
         while (opb == false) {
             System.out.println("Selecione uma opção abaixo:");
@@ -314,15 +317,15 @@ public class ProdInCena {
                         ops = input.next();
 
                         System.out.println("Qual a função deste funcionário?");
-                        opsf = input.next();
+                        opfa = FuncionariosApoio.valueOf(input.next());
 
-                        CadastrarFuncionario(newCena, opb, ops, opsf);
+                        CadastrarFuncionario(newCena, opb, ops);
 
                         System.out.println("Você deseja cadastrar outro funcionario? S/N");
                         ops = input.next();
-                        
+
                         opb = false;
-                        
+
                         if (ops.equals("N")) {
                             opb = true;
                         }
@@ -421,10 +424,10 @@ public class ProdInCena {
                     opi = input.nextInt();
 
                     newProducao = aListProducao.get(opi);
-                    
+
                     System.out.println("Lucro Total: ");
                     System.out.print(LucroFinal(GetValorVerba(newProducao.aListVerba), GetValorFuncionario(newProducao.aListCena)));
-                    
+
                     System.out.println("Verba Total: ");
                     System.out.print(GetValorVerba(newProducao.aListVerba));
 
@@ -449,14 +452,14 @@ public class ProdInCena {
             ops = input.next();
 
             if (ops.equals("S")) {
-                 opb = false;
+                opb = false;
             } else {
                 System.out.println("Obrigado por utilizar o sistema.");
                 break;
             }
         }
     }
-    
+
     //Main
     public static void main(String[] args) {
         ProdInCena prod = new ProdInCena();
