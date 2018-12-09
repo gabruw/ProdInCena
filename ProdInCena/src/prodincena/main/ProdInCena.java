@@ -177,10 +177,8 @@ public class ProdInCena {
     }
 
     private String FormatarHorario(String horarioInicio) {
-        SimpleDateFormat formatter1 = new SimpleDateFormat("HHmmss");
-        SimpleDateFormat formatter2 = new SimpleDateFormat("HH:mm:ss");
-        String horaFormatada = formatter2.format(formatter1.format(horarioInicio));
-
+        String horaFormatada = horarioInicio.substring(0, 2) + ":" + horarioInicio.substring(2, 4) + ":" + horarioInicio.substring(4, 6);
+        
         return horaFormatada;
     }
 
@@ -396,7 +394,7 @@ public class ProdInCena {
 
                     newProducao.nome = ops;
 
-                    System.out.println("Digite o horario de inicio da produção [numeros todos juntos]:");
+                    System.out.println("Digite o horario de inicio da produção [numeros todos juntos][6 digitos]:");
                     ops = input.next();
 
                     newProducao.horarioInicio = FormatarHorario(ops);
