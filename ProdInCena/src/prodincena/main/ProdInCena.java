@@ -103,7 +103,8 @@ public class ProdInCena {
 
             System.out.println("Digite o salário por produção:");
             opd2 = input.nextDouble();
-
+            
+            newFuncionarioPrincipal.tipo = FuncionariosPrincipal.valueOf(funcao).toString();
             newFuncionarioPrincipal.salario = CalcSalarioPrincipal(ops, opd, opd2);
 
             newCena.aListFuncionario.add(newFuncionarioPrincipal);
@@ -113,7 +114,8 @@ public class ProdInCena {
             newFuncionarioApoio.funcaoApoio = FuncionariosApoio.valueOf(funcao);
             newFuncionarioApoio.nome = nome;
             newFuncionarioApoio.salario = CalcSalarioApoio(FuncionariosApoio.valueOf(funcao));
-
+            newFuncionarioApoio.tipo = FuncionariosPrincipal.valueOf(funcao).toString();
+            
             newCena.aListFuncionario.add(newFuncionarioApoio);
         }
     }
@@ -245,7 +247,7 @@ public class ProdInCena {
     public void GetEnvolvidos(ArrayList<Cena> aListCena) {
         for (Cena cena : aListCena) {
             for (Funcionario funcionario : cena.aListFuncionario) {
-                switch (funcionario.nome) {
+                switch (funcionario.tipo) {
                     case "ATOR":
                         System.out.println("[Ator]");
                         break;

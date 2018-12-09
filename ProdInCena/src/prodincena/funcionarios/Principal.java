@@ -3,6 +3,7 @@ package prodincena.funcionarios;
 public class Principal extends Funcionario {
     public String nomePrincipal;
     public FuncionariosPrincipal funcaoPrincipal;
+    public String tipo;
     public double salarioPrincipal;
 
     // Builder's
@@ -10,9 +11,10 @@ public class Principal extends Funcionario {
     
     }
 
-    public Principal(String nomePrincipal, FuncionariosPrincipal funcaoPrincipal, double salarioPrincipal) {
+    public Principal(String nomePrincipal, FuncionariosPrincipal funcaoPrincipal, String tipo, double salarioPrincipal) {
         this.nomePrincipal = nomePrincipal;
         this.funcaoPrincipal = funcaoPrincipal;
+        this.tipo = tipo;
         this.salarioPrincipal = salarioPrincipal;
     }
     
@@ -40,4 +42,12 @@ public class Principal extends Funcionario {
     public void setSalarioPrincipal(double salarioPrincipal) {
         this.salarioPrincipal = salarioPrincipal;
     }
+    
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    } 
 }

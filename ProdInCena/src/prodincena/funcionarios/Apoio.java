@@ -3,6 +3,7 @@ package prodincena.funcionarios;
 public class Apoio extends Funcionario{
     public String nomeApoio;
     public FuncionariosApoio funcaoApoio;
+    public String tipo;
     public double salarioApoio;
 
     // Builder's
@@ -10,9 +11,10 @@ public class Apoio extends Funcionario{
     
     }
 
-    public Apoio(String nomeApoio, FuncionariosApoio funcaoApoio, double salarioApoio) {
+    public Apoio(String nomeApoio, FuncionariosApoio funcaoApoio, String tipo, double salarioApoio) {
         this.nomeApoio = nomeApoio;
         this.funcaoApoio = funcaoApoio;
+        this.tipo = tipo;
         this.salarioApoio = salarioApoio;
     }
     
@@ -40,4 +42,12 @@ public class Apoio extends Funcionario{
     public void setSalarioApoio(double salarioApoio) {
         this.salarioApoio = salarioApoio;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    } 
 }
